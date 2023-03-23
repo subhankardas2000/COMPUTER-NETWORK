@@ -1,0 +1,27 @@
+Commands on Router for VOIP
+Router(config)#ip dhcp pool voice
+Router(dhcp-config)#option 150 ip 192.168.10.1
+Router(dhcp-config)#exit
+Router(config)#telephony-service
+Router(config-telephony)#max-dn 5
+Router(config-telephony)#max-ephones 5
+Router(config-telephony)#ip source-address 192.168.10.1 port 2000
+Router(config-telephony)#auto assign 1 to 9
+Router(config-telephony)#exit
+Router(config)#ephone-dn 1
+%LINK-3-UPDOWN: Interface ephone_dsp DN 1.1, changed state to up
+Router(config-ephone-dn)#number 12345
+Router(config-ephone-dn)#exit
+%IPPHONE-6-REGISTER: ephone-1 IP:192.168.10.2 Socket:2 DeviceType:Phone has registered.
+Router(config)#ephone-dn 2
+%LINK-3-UPDOWN: Interface ephone_dsp DN 2.1, changed state to up
+Router(config-ephone-dn)#number 123
+Router(config-ephone-dn)#exit
+Router(config)#ephone-dn 3
+%LINK-3-UPDOWN: Interface ephone_dsp DN 3.1, changed state to up
+Router(config-ephone-dn)#number 11111
+Router(config-ephone-dn)#exit
+Commands on Switch for VOIP
+Switch(config)#interface range fastEthernet 0/1 – fastEthernet 0/10
+Switch(config-if-range)#switchport mode access
+Switch(config-if-range)#switchport voice vlan 1
