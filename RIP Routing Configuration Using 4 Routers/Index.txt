@@ -1,0 +1,5 @@
+RIP Routing Configuration Using 4 Routers in Cisco Packet Tracer
+Pre-Requisite: Routing Information Protocol (RIP)
+
+Routing Information Protocol (RIP) is an active routing protocol that operates hop count as a routing metric to find the most suitable route between the source
+and the destination network. It is a distance-vector routing protocol that has an AD value of 120 and works on the Network layer of the OSI model.
